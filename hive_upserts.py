@@ -23,7 +23,7 @@ def main():
    args=get_args()
    input_name=args.name 
    spark=create_spark_session("hive upserts")
-   upsert_sql="select * from upsert_tbl"
+   upsert_sql="select * from upsert_tbl" #upsert_tbl is incr_table
    read_incr_df=spark.sql(upsert_sql)
    curr_minus_incr_sql="select * from curr left join upsert_tbl u on curr.pk=u.pk where u.pk IS NULL"
    merge_df=curr_minus_incr_sql.union(read_incr_df)
