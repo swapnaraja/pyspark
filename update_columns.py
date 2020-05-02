@@ -10,8 +10,8 @@ print("src cnt is "+str(src_df.count()))
 raw_df=src_df.filter(src_df.run_date=="2020-01-01")
 to_be_upd_df=src_df.filter(src_df.run_date!="2020-01-01")
 
-ra2_df.count
-upd_df.count 
+raw_df.count
+to_be_upd_df.count 
 
 upd_df=to_be_upd_df.withColumn("amt",to_be_upd_df["amt"]*100).withColumn("adj_amt",to_be_upd_df["adj_amt"]*100)
 
